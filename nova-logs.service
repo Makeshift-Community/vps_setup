@@ -1,0 +1,17 @@
+# /etc/systemd/system/nova-logs.service
+
+[Unit]
+Description=nova-logs
+After=network.target
+
+[Service]
+Type=simple
+User=nova-logs
+WorkingDirectory=/home/nova-logs/nova-logs
+
+ExecStart=node .
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

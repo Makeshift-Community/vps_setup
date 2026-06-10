@@ -1,0 +1,17 @@
+# /etc/systemd/system/nova-makeshift.service
+
+[Unit]
+Description=nova-makeshift
+After=network.target
+
+[Service]
+Type=simple
+User=nova-makeshift
+WorkingDirectory=/home/nova-makeshift/nova-makeshift
+
+ExecStart=/home/nova-makeshift/.nvm/versions/node/v24.16.0/bin/node .
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
